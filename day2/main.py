@@ -29,8 +29,8 @@ def part2(ranges: list[str]) -> int:
         for id in range(start, end + 1, 1):
             id_str = str(id)
 
-            if re.match(r'^(\w+)\1+$', id_str):
-                sum += id
+            # if re.match(r'^(\w+)\1+$', id_str):
+            #     sum += id
             
             # id_len = len(id_str)
             # for amount_of_parts in range(2, id_len + 1):
@@ -42,6 +42,16 @@ def part2(ranges: list[str]) -> int:
             #     if id_str.count(pattern) == amount_of_parts:
             #         sum += id
             #         break
+
+            id_len = len(id_str)
+            for size in range(1, (id_len // 2) + 1):
+                if id_len % size != 0:
+                    continue
+
+                pattern = id_str[:size]
+                if (id_len // size) * pattern == id_str:
+                    sum += id
+                    break
 
     return sum
         
