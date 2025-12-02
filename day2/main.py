@@ -29,7 +29,7 @@ def part2(ranges: list[str]) -> int:
         for id in range(start, end + 1, 1):
             id_str = str(id)
 
-            # if re.match(r'^(\w+)\1+$', id_str):
+            # if re.match(r'^(\w+?)\1+$', id_str):
             #     sum += id
             
             # id_len = len(id_str)
